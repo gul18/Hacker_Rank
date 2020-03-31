@@ -1,0 +1,21 @@
+def solve(s):
+    p=list(s)
+    for i in range(len(p)):
+        if(i==0 and p[i].isalpha()):
+            p[i]=p[i].capitalize()
+        if(p[i].isspace() and p[i+1].isalpha()):
+            p[i+1]=p[i+1].capitalize()
+            i+=1
+    k="".join(p)
+    return(k)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = solve(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
